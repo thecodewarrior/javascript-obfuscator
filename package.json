@@ -1,7 +1,7 @@
 {
-  "name": "javascript-obfuscator",
+  "name": "javascript-obfuscator-smurf-mode",
   "version": "0.17.0-dev.0",
-  "description": "JavaScript obfuscator",
+  "description": "JavaScript obfuscator, smurf mode",
   "keywords": [
     "obfuscator",
     "obfuscation",
@@ -9,7 +9,8 @@
     "crush",
     "code protection",
     "javascript obfuscator",
-    "js obfuscator"
+    "js obfuscator",
+	"smurf"
   ],
   "engines": {
     "node": ">=6.11.5"

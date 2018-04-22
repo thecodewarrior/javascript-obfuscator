@@ -108,7 +108,8 @@ export class Options implements IOptions {
      */
     @IsIn([
         IdentifierNamesGenerator.HexadecimalIdentifierNamesGenerator,
-        IdentifierNamesGenerator.MangledIdentifierNamesGenerator
+        IdentifierNamesGenerator.MangledIdentifierNamesGenerator,
+        IdentifierNamesGenerator.SmurfIdentifierNamesGenerator
     ])
     public readonly identifierNamesGenerator!: IdentifierNamesGenerator;
 

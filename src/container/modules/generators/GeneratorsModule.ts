@@ -8,6 +8,7 @@ import { IdentifierNamesGenerator } from '../../../enums/generators/identifier-n
 
 import { HexadecimalIdentifierNamesGenerator } from '../../../generators/identifier-names-generators/HexadecimalIdentifierNamesGenerator';
 import { MangledIdentifierNamesGenerator } from '../../../generators/identifier-names-generators/MangledIdentifierNamesGenerator';
+import { SmurfIdentifierNamesGenerator } from '../../../generators/identifier-names-generators/SmurfIdentifierNamesGenerator';
 
 export const generatorsModule: interfaces.ContainerModule = new ContainerModule((bind: interfaces.Bind) => {
     // identifier name generators
@@ -15,6 +16,11 @@ export const generatorsModule: interfaces.ContainerModule = new ContainerModule(
         .to(HexadecimalIdentifierNamesGenerator)
         .inSingletonScope()
         .whenTargetNamed(IdentifierNamesGenerator.HexadecimalIdentifierNamesGenerator);
+
+    bind<IIdentifierNamesGenerator>(ServiceIdentifiers.IIdentifierNamesGenerator)
+        .to(SmurfIdentifierNamesGenerator)
+        .inSingletonScope()
+        .whenTargetNamed(IdentifierNamesGenerator.SmurfIdentifierNamesGenerator);
 
     bind<IIdentifierNamesGenerator>(ServiceIdentifiers.IIdentifierNamesGenerator)
         .to(MangledIdentifierNamesGenerator)
@@ -38,6 +44,14 @@ export const generatorsModule: interfaces.ContainerModule = new ContainerModule(
                         identifierNamesGenerator = context.container.getNamed<IIdentifierNamesGenerator>(
                             ServiceIdentifiers.IIdentifierNamesGenerator,
                             IdentifierNamesGenerator.MangledIdentifierNamesGenerator
+                        );
+
+                        break;
+
+                    case IdentifierNamesGenerator.SmurfIdentifierNamesGenerator:
+                        identifierNamesGenerator = context.container.getNamed<IIdentifierNamesGenerator>(
+                            ServiceIdentifiers.IIdentifierNamesGenerator,
+                            IdentifierNamesGenerator.SmurfIdentifierNamesGenerator
                         );
 
                         break;
